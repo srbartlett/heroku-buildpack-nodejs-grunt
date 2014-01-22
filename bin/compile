@@ -41,7 +41,7 @@ function indent() {
 
 function run_npm() {
   command="$1"
-  
+
   [ ! -z $VERBOSE ] && command="--verbose $command"
 
   cd $BUILD_DIR
@@ -171,6 +171,12 @@ PATH="$VENDORED_SCONS:$VENDORED_NODE/bin:$PATH"
 INCLUDE_PATH="$VENDORED_NODE/include"
 export CPATH="$INCLUDE_PATH"
 export CPPPATH="$INCLUDE_PATH"
+
+# install compass
+echo "-----> Installing Compass"
+export GEM_HOME=$BUILD_DIR/.gem/ruby/1.9.1
+PATH="$GEM_HOME/bin:$PATH"
+HOME=$BUILD_DIR gem install compass --user-install --no-rdoc --no-ri
 
 # install dependencies with npm
 echo "-----> Installing dependencies with npm"
