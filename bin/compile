@@ -203,6 +203,7 @@ export CPPPATH="$INCLUDE_PATH"
 echo "-----> Installing Compass"
 export GEM_HOME=$BUILD_DIR/.gem/ruby/1.9.1
 PATH="$GEM_HOME/bin:$PATH"
+HOME=$BUILD_DIR gem install sass -v 3.4.5 --user-install --no-rdoc --no-ri
 HOME=$BUILD_DIR gem install compass --user-install --no-rdoc --no-ri
 
 # install dependencies with npm
